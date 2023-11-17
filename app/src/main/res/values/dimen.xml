@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="scrollbar_item_margin">5dp</dimen>
+    <dimen name="scrollbar_item_size">7dp</dimen>
+    <dimen name="star_size">20dp</dimen>
+    <dimen name="corner_radius">15dp</dimen>
+
+    <dimen name="h1">36sp</dimen>
+    <dimen name="h2">32sp</dimen>
+    <dimen name="h3">26sp</dimen>
+    <dimen name="h4">24sp</dimen>
+    <dimen name="h5">18sp</dimen>
+    <dimen name="h6">16sp</dimen>
+
+    <dimen name="b1">36sp</dimen>
+    <dimen name="b2">32sp</dimen>
+    <dimen name="b3">26sp</dimen>
+    <dimen name="b4">24sp</dimen>
+    <dimen name="b5">18sp</dimen>
+    <dimen name="b6">16sp</dimen>
+
+    <dimen name="margin8">8dp</dimen>
+    <dimen name="margin10">10dp</dimen>
+
+    <dimen name="specific5_padding_v">5dp</dimen>
+    <dimen name="specific10_padding_v">10dp</dimen>
+    <dimen name="specific5_padding_h">5dp</dimen>
+    <dimen name="specific10_padding_h">10dp</dimen>
+</resources>

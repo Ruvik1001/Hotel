@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="rating_color">#fff4cc</color>
+    <color name="rating_text_color">#ffa800</color>
+    <color name="url">#0d72ff</color>
+    <color name="gray">#828796</color>
+    <color name="background_color">#f6f6f9</color>
+    <color name="tall_divider_color">#e9eaec</color>
+    <color name="table_fun_bg">#fbfbfc</color>
+    <color name="btn_color">#0d72ff</color>
+    <color name="light_blue">#e7f1ff</color>
+</resources>

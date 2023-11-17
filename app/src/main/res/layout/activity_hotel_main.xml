@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--https://www.figma.com/file/MF3rG9GQdSkL8cVaGSpclJ/Android?type=design&node-id=1-701&mode=design&t=klybdZcOx0QABYMr-4-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.hotel.HotelMainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_color"
+        android:layout_above="@id/btn_change_hotel_layout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:divider="@drawable/divider_invisible_v"
+            android:showDividers="middle">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:background="@drawable/only_bottom_radius">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="@string/hotel_title"
+                    android:textSize="@dimen/h4"
+                    android:textColor="@color/black"
+                    android:gravity="center_horizontal"/>
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:layout_below="@id/title"
+                    android:id="@+id/carouselView"
+                    android:layout_width="match_parent"
+                    android:layout_height="257dp"
+                    android:layout_marginBottom="8dp"
+                    />
+
+                <LinearLayout
+                    android:id="@+id/scrollbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/scrollbar_background"
+                    android:layout_alignBottom="@id/carouselView"
+                    android:orientation="horizontal"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="32dp"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/rating"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_below="@id/carouselView"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:background="@color/rating_color"
+                    android:textColor="@color/rating_text_color"
+                    android:drawablePadding="5dp"
+                    android:maxHeight="40dp"
+                    android:textSize="@dimen/b5"
+                    app:drawableStartCompat="@drawable/star" />
+
+                <TextView
+                    android:id="@+id/hotel_name"
+                    android:layout_below="@id/rating"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/b4"
+                    />
+
+                <TextView
+                    android:id="@+id/hotel_address"
+                    android:layout_below="@id/hotel_name"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/url"
+                    android:textSize="@dimen/h6"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <TableLayout
+                    android:id="@+id/cost_table"
+                    android:layout_below="@id/hotel_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp">
+
+                    <TableRow>
+                        <TextView
+                            android:id="@+id/hotel_cost"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/b2"
+                            android:clickable="true"
+                            android:focusable="true" />
+
+                        <TextView
+                            android:id="@+id/price_for_it"
+                            android:layout_below="@id/hotel_address"
+                            android:layout_toEndOf="@id/hotel_cost"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/b5"
+                            android:clickable="true"
+                            android:focusable="true" />
+
+                    </TableRow>
+
+                </TableLayout>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:background="@drawable/radius_bg">
+
+                <TextView
+                    android:id="@+id/about_hotel_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/b3"
+                    android:text="@string/hotel_about_hotel"/>
+
+                <TableLayout
+                    android:id="@+id/about_hotel_table"
+                    android:layout_below="@id/about_hotel_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:divider="@drawable/divider_invisible_v"
+                    android:showDividers="middle"/>
+
+                <TextView
+                    android:id="@+id/about_hotel_body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/about_hotel_table"
+                    android:layout_marginTop="16dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/b5"/>
+
+                <TableLayout
+                    android:id="@+id/btn_table"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/about_hotel_body"
+                    android:background="@drawable/radius_bg_twelve"
+                    android:backgroundTint="@color/table_fun_bg"
+                    android:padding="15dp">
+
+                    <TableRow
+                        android:id="@+id/comfortable_action"
+                        android:gravity="center_vertical"
+                        >
+                        <ImageView
+                            android:src="@drawable/conveniences_btn_ico"
+                            android:paddingRight="15dp"/>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical">
+                            <TableLayout
+                                android:layout_height="match_parent"
+                                android:layout_width="match_parent">
+
+
+                                <TableRow>
+                                    <TextView
+                                        android:text="@string/conveniences"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/b5"/>
+                                </TableRow>
+
+                                <TableRow>
+                                    <TextView
+                                        android:text="@string/most_necessary"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/b6"/>
+                                </TableRow>
+
+                            </TableLayout>
+                        </LinearLayout>
+
+                        <ImageView
+                            android:src="@drawable/next_btn_ico"/>
+
+                    </TableRow>
+
+                    <TableRow>
+                        <View android:layout_height="20dp"/>
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:divider="@drawable/divider_tall_v"
+                            android:showDividers="middle">
+                            <View android:layout_height="10dp" android:layout_width="match_parent"/>
+                            <View android:layout_height="10dp" android:layout_width="match_parent"/>
+                        </LinearLayout>
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/positive_action"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:src="@drawable/positive_btn_ico"
+                            android:paddingRight="15dp"/>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical">
+                            <TableLayout
+                                android:layout_height="match_parent"
+                                android:layout_width="match_parent">
+
+
+                                <TableRow>
+                                    <TextView
+                                        android:text="@string/what_included"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/b5"/>
+                                </TableRow>
+
+                                <TableRow>
+                                    <TextView
+                                        android:text="@string/most_necessary"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/b6"/>
+                                </TableRow>
+
+                            </TableLayout>
+                        </LinearLayout>
+
+                        <ImageView
+                            android:src="@drawable/next_btn_ico"/>
+
+                    </TableRow>
+
+                    <TableRow>
+                        <View android:layout_height="20dp"/>
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:divider="@drawable/divider_tall_v"
+                            android:showDividers="middle">
+                            <View android:layout_height="10dp" android:layout_width="match_parent"/>
+                            <View android:layout_height="10dp" android:layout_width="match_parent"/>
+                        </LinearLayout>
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/negative_action"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:src="@drawable/negative_btn_ico"
+                            android:paddingRight="15dp"/>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical">
+                            <TableLayout
+                                android:layout_height="match_parent"
+                                android:layout_width="match_parent">
+
+                                <TableRow>
+                                    <TextView
+                                        android:text="@string/what_not_included"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/b5"/>
+                                </TableRow>
+
+                                <TableRow>
+                                    <TextView
+                                        android:text="@string/most_necessary"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/b6"/>
+                                </TableRow>
+
+                            </TableLayout>
+                        </LinearLayout>
+
+                        <ImageView
+                            android:src="@drawable/next_btn_ico"/>
+
+                    </TableRow>
+                </TableLayout>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <TableLayout
+        android:id="@+id/btn_change_hotel_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="16dp">
+
+        <Button
+            android:id="@+id/btn_change_hotel"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/btn_color"
+            android:text="@string/btn_on_number_change"
+            android:textSize="@dimen/b5"
+            android:paddingVertical="15dp"/>
+
+    </TableLayout>
+</RelativeLayout>

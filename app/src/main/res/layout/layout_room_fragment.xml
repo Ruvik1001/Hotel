@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragmentContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:padding="16dp"
+        android:background="@drawable/radius_bg">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/carouselView"
+            android:layout_width="match_parent"
+            android:layout_height="257dp"
+            />
+
+        <LinearLayout
+            android:id="@+id/scrollbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/scrollbar_background"
+            android:layout_alignBottom="@id/carouselView"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="32dp"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            />
+
+        <TextView
+            android:id="@+id/room_name"
+            android:layout_below="@id/carouselView"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/margin8"
+            android:textColor="@color/black"
+            android:textSize="@dimen/b4"
+            />
+
+        <TableLayout
+            android:id="@+id/about_room_table"
+            android:layout_below="@id/room_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/divider_invisible_v"
+            android:showDividers="middle"/>
+
+        <TextView
+            android:id="@+id/more_info"
+            android:layout_below="@id/about_room_table"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/next_btn_ico_blue"
+            android:textColor="@color/btn_color"
+            android:text="Подробнее о номере  "
+            android:paddingHorizontal="@dimen/specific10_padding_h"
+            android:paddingVertical="@dimen/specific5_padding_v"
+            android:background="@drawable/radius_bg_five"
+            android:backgroundTint="@color/light_blue"/>
+
+        <TableLayout
+            android:id="@+id/cost_table"
+            android:layout_below="@id/more_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <TableRow>
+                <TextView
+                    android:id="@+id/room_cost"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/b2"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/price_for_it"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/b5"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+            </TableRow>
+
+        </TableLayout>
+
+        <TableLayout
+            android:id="@+id/btn_change_number_layout"
+            android:layout_below="@id/cost_table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingVertical="12dp"
+            android:paddingHorizontal="16dp">
+
+            <Button
+                android:id="@+id/btn_change_room"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/btn_color"
+                android:text="@string/btn_change_number"
+                android:textSize="@dimen/b5"
+                android:paddingVertical="15dp"/>
+
+        </TableLayout>
+
+    </RelativeLayout>
+</FrameLayout>

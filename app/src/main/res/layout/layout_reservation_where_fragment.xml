@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp"
+    android:id="@+id/fragmentContainer"
+    android:background="@drawable/radius_bg_twelve">
+
+    <TextView
+        android:id="@+id/rating"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@color/rating_color"
+        android:textColor="@color/rating_text_color"
+        android:drawablePadding="5dp"
+        android:maxHeight="40dp"
+        android:textSize="@dimen/b5"
+        app:drawableStartCompat="@drawable/star" />
+
+    <TextView
+        android:id="@+id/hotel_name"
+        android:layout_below="@id/rating"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/b4"
+        />
+
+    <TextView
+        android:id="@+id/hotel_address"
+        android:layout_below="@id/hotel_name"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/url"
+        android:textSize="@dimen/h6"
+        android:clickable="true"
+        android:focusable="true" />
+
+</RelativeLayout>

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Hotel</string>
+
+    <string name="currency_rus">₽</string>
+
+    <string name="hotel_title">Отель</string>
+    <string name="hotel_about_hotel">Об отеле</string>
+    <string name="most_necessary">Самое необходимое</string>
+    <string name="conveniences">Удобства</string>
+    <string name="what_included">Что включено</string>
+    <string name="what_not_included">Что не включено</string>
+    <string name="btn_on_number_change">К выбору номера</string>
+    <string name="btn_change_number">Выбрать номер</string>
+    <string name="reservation_title_name">Бронирование</string>
+    <string name="add_new_client">Добавить туриста</string>
+</resources>

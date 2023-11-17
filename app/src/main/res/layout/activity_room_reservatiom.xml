@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context=".presentation.reservation.RoomReservationActivity">
+
+    <TableLayout
+        android:id="@+id/label"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:gravity="center_vertical">
+            <ImageView
+                android:id="@+id/btn_back"
+                android:src="@drawable/prev_btn_ico"
+                android:padding="@dimen/b5"
+                />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center">
+                <TextView
+                    android:id="@+id/reservation_title_name"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="@string/reservation_title_name"
+                    android:textSize="@dimen/h4"
+                    android:textColor="@color/black"
+                    android:gravity="center_horizontal"/>
+            </LinearLayout>
+
+            <ImageView
+                android:src="@drawable/prev_btn_ico"
+                android:padding="@dimen/b5"
+                android:foreground="@color/white"
+                />
+        </TableRow>
+
+    </TableLayout>
+
+    <ScrollView
+        android:id="@+id/scroll_layout"
+        android:layout_above="@id/btn_agree_layout"
+        android:layout_below="@id/label"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <!--SEE_OTHER_LAYOUT_FILES-->
+            <!--COLOR BLACK OR GRAY-->
+            <!--TEXT SIZE-->
+            <!--PADDING-->
+            <!--MARGIN-->
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <TableLayout
+        android:id="@+id/btn_agree_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="16dp">
+
+        <Button
+            android:id="@+id/btn_agree_trip"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/btn_color"
+            android:textSize="@dimen/b5"
+            android:paddingVertical="15dp"/>
+
+    </TableLayout>
+</RelativeLayout>
