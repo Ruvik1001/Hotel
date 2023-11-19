@@ -6,7 +6,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.hotel.R
 import com.example.hotel.databinding.ActivityHotelMainBinding
-import com.example.hotel.presentation.adapter.ImageFragmentAdapter
+import com.example.hotel.special.adapter.image.ImageFragmentAdapter
 import com.example.hotel.presentation.room.RoomChangeActivity
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap

@@ -10,5 +10,8 @@
     <color name="tall_divider_color">#e9eaec</color>
     <color name="table_fun_bg">#fbfbfc</color>
     <color name="btn_color">#0d72ff</color>
+    <color name="ind_color">#e7f1ff</color>
     <color name="light_blue">#e7f1ff</color>
+    <color name="error">#38EB5757</color>
+    <color name="ind_act_color">#0d72ff</color>
 </resources>

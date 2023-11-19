@@ -1,6 +1,6 @@
 package com.example.hotel.presentation.room
 
-import RoomFragmentAdapter
+import com.example.hotel.special.adapter.room.RoomFragmentAdapter
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

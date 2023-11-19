@@ -1,3 +1,5 @@
+package com.example.hotel.special.adapter.room
+
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +12,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.domain.model.RoomModel
 import com.example.domain.model.RoomsListModel
 import com.example.hotel.R
-import com.example.hotel.presentation.adapter.ImageFragmentAdapter
+import com.example.hotel.special.adapter.image.ImageFragmentAdapter
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayout

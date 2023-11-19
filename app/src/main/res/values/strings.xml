@@ -13,4 +13,13 @@
     <string name="btn_change_number">Выбрать номер</string>
     <string name="reservation_title_name">Бронирование</string>
     <string name="add_new_client">Добавить туриста</string>
+    <string name="phone_title">Номер телефона</string>
+    <string name="mail_title">Почта</string>
+    <string name="about_num_and_mail_disc">Эти данные никому не передаются. После оплаты, мы вышлем вам чек на указанный вами номер и почту</string>
+    <string name="title_name">Имя</string>
+    <string name="last_name_title">Фамилия</string>
+    <string name="success_body1">Ваш заказ приняли в работу</string>
+    <string name="succes_body_half1">Подтверждение заказа</string>
+    <string name="success_body_half2">может занять некоторое время (от 1 часа до суток). Как только мы получим ответ от туроператора, вам на почту придет уведомление.</string>
+    <string name="ok">Супер!</string>
 </resources>

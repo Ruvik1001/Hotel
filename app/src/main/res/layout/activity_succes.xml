@@ -4,11 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color"
-    tools:context=".presentation.reservation.RoomReservationActivity">
+    tools:context=".presentation.succes.SuccesActivity">
 
     <TableLayout
-        android:id="@+id/label"
         android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -27,12 +25,12 @@
                 android:layout_weight="1"
                 android:layout_gravity="center">
                 <TextView
-                    android:id="@+id/reservation_title_name"
+                    android:id="@+id/hotel_name"
                     android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="8dp"
-                    android:text="@string/reservation_title_name"
+                    android:text="Заказ оплачен"
                     android:textSize="@dimen/h4"
                     android:textColor="@color/black"
                     android:gravity="center_horizontal"/>
@@ -47,17 +45,46 @@
 
     </TableLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/lst_tour_info"
+    <LinearLayout
+        android:padding="23dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/label"
-        android:layout_above="@id/btn_agree_layout"/>
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
 
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle"
+            android:foreground="@drawable/party"
+            android:backgroundTintMode="src_in"/>
+
+        <TextView
+            android:paddingTop="32dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/b3"
+            android:text="@string/success_body1"
+            android:gravity="center"/>
+
+        <TextView
+            android:paddingTop="20dp"
+            android:id="@+id/order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/b5"
+            android:gravity="center"/>
+
+    </LinearLayout>
 
     <TableLayout
-        android:id="@+id/btn_agree_layout"
+        android:id="@+id/btn_change_hotel_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -66,9 +93,10 @@
         android:paddingHorizontal="16dp">
 
         <Button
-            android:id="@+id/btn_agree_trip"
+            android:id="@+id/btn_end"
             android:textColor="@color/white"
             android:backgroundTint="@color/btn_color"
+            android:text="@string/ok"
             android:textSize="@dimen/b5"
             android:paddingVertical="15dp"/>
 

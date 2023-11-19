@@ -19,6 +19,10 @@
     <dimen name="b4">24sp</dimen>
     <dimen name="b5">18sp</dimen>
     <dimen name="b6">16sp</dimen>
+    <dimen name="b7">14sp</dimen>
+
+    <dimen name="s20">20sp</dimen>
+
 
     <dimen name="margin8">8dp</dimen>
     <dimen name="margin10">10dp</dimen>
