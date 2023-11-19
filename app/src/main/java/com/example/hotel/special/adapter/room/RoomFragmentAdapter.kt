@@ -1,3 +1,5 @@
+package com.example.hotel.special.adapter.room
+
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -10,10 +12,12 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.domain.model.RoomModel
 import com.example.domain.model.RoomsListModel
 import com.example.hotel.R
-import com.example.hotel.presentation.adapter.ImageFragmentAdapter
+import com.example.hotel.special.adapter.image.ImageFragmentAdapter
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayout
+import java.text.NumberFormat
+import java.util.Locale
 
 class RoomFragmentAdapter(
     private val context: Context,
@@ -81,7 +85,10 @@ class RoomFragmentAdapter(
 
         holder.container.findViewById<TableLayout>(R.id.about_room_table).addView(flexboxLayout)
 
-        holder.container.findViewById<TextView>(R.id.room_cost).text = "${roomModel.price} ${context.resources.getString(R.string.currency_rus)}"
+        val numberFormat = NumberFormat.getNumberInstance(Locale.getDefault())
+        holder.container.findViewById<TextView>(R.id.room_cost).text =
+            "${numberFormat.format(roomModel.price).replace(","," ")} " +
+                    "${context.resources.getString(R.string.currency_rus)}"
 
         holder.container.findViewById<TextView>(R.id.price_for_it).text = "${roomModel.price_per}"
 

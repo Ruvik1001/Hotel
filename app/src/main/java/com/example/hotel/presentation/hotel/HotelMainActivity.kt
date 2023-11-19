@@ -6,12 +6,14 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.hotel.R
 import com.example.hotel.databinding.ActivityHotelMainBinding
-import com.example.hotel.presentation.adapter.ImageFragmentAdapter
+import com.example.hotel.special.adapter.image.ImageFragmentAdapter
 import com.example.hotel.presentation.room.RoomChangeActivity
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayout
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.text.NumberFormat
+import java.util.Locale
 
 
 class HotelMainActivity : AppCompatActivity() {
@@ -24,6 +26,8 @@ class HotelMainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         viewModel.hotelLiveData.observe(this) {
+
+            val numberFormat = NumberFormat.getNumberInstance(Locale.getDefault())
             binding.carouselView.adapter = ImageFragmentAdapter(
                 context = this,
                 imageUrls = it.image_urls,
@@ -33,7 +37,7 @@ class HotelMainActivity : AppCompatActivity() {
             binding.rating.text = "${it.rating} ${it.rating_name}"
             binding.hotelName.text = "${it.name}"
             binding.hotelAddress.text = "${it.adress}"
-            binding.hotelCost.text = "от ${it.minimal_price} ${resources.getString(R.string.currency_rus)}"
+            binding.hotelCost.text = "от ${numberFormat.format(it.minimal_price).replace(","," ")} ${resources.getString(R.string.currency_rus)}"
             binding.priceForIt.text = "${it.price_for_it}"
             binding.aboutHotelBody.text = "${it.about_the_hotel.description}"
 

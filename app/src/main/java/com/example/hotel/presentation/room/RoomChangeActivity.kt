@@ -1,6 +1,6 @@
 package com.example.hotel.presentation.room
 
-import RoomFragmentAdapter
+import com.example.hotel.special.adapter.room.RoomFragmentAdapter
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -24,7 +24,8 @@ class RoomChangeActivity : AppCompatActivity() {
 
         viewModel.roomsLiveData.observe(this) {
             val adapter = RoomFragmentAdapter(this, it) {
-                startActivity(Intent(this@RoomChangeActivity, RoomReservationActivity::class.java))
+                startActivity(Intent(this@RoomChangeActivity,
+                    RoomReservationActivity::class.java))
             }
 
             binding.recycler.layoutManager = LinearLayoutManager(this)

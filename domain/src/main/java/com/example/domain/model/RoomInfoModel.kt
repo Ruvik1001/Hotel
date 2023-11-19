@@ -4,7 +4,7 @@ data class RoomInfoModel(
     val id: Int,
     val hotel_name: String,
     val hotel_adress: String,
-    val hotel_rating: Int,
+    val horating: Int,
     val rating_name: String,
     val departure: String,
     val arrival_country: String,

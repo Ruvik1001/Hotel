@@ -3,6 +3,7 @@ package com.example.hotel.di
 import com.example.hotel.presentation.hotel.HotelMainViewModel
 import com.example.hotel.presentation.reservation.RoomReservationViewModel
 import com.example.hotel.presentation.room.RoomChangeViewModel
+import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -21,7 +22,10 @@ val appModule = module {
 
     viewModel<RoomReservationViewModel> {
         RoomReservationViewModel(
-            getRoomInfoFromApiUseCase = get()
+            context = androidContext(),
+            getRoomInfoFromApiUseCase = get(),
+            checkBuyerUseCase = get(),
+            checkClientsUseCase = get()
         )
     }
 }

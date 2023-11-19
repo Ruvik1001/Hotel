@@ -27,7 +27,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
-class ImageFragment(private val imageUrl: String) : Fragment() {
+class ImageFragment(private val imageUrl: String = "") : Fragment() {
     private lateinit var view: View
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -55,22 +55,6 @@ class ImageFragment(private val imageUrl: String) : Fragment() {
 
         return view
     }
-
-//    private fun getRoundedCornerBitmap(bitmap: Bitmap, pixels: Float): Bitmap {
-//        val output = Bitmap.createBitmap(bitmap.width, bitmap.height, Bitmap.Config.ARGB_8888)
-//        val canvas = Canvas(output)
-//        val paint = Paint()
-//        val rect = Rect(0, 0, bitmap.width, bitmap.height)
-//        val rectF = RectF(rect)
-//
-//        paint.isAntiAlias = true
-//        canvas.drawRoundRect(rectF, pixels, pixels, paint)
-//
-//        paint.xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
-//        canvas.drawBitmap(bitmap, rect, rect, paint)
-//
-//        return output
-//    }
 
     private suspend fun getRoundedCornerBitmap(imageUrl: String): Bitmap =
         withContext(Dispatchers.IO) {

@@ -1,11 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:padding="16dp"
     android:background="@drawable/radius_bg_twelve"
+    android:layout_marginTop="8dp"
     android:id="@+id/fragmentContainer">
 
+    <TextView
+        android:id="@+id/label"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/b4"
+        />
+
+    <LinearLayout
+        android:layout_below="@id/label"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/empty_divider_v8"
+        android:showDividers="middle"
+        android:orientation="vertical">
+
+        <TableLayout
+            android:id="@+id/filed_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/radius_bg_ten"
+            android:backgroundTint="@color/background_color"
+            >
+
+            <TableRow>
+                <TextView
+                    android:textSize="@dimen/b7"
+                    android:textColor="@color/gray"
+                    android:text="@string/phone_title"/>
+            </TableRow>
+
+            <TableRow>
+                <EditText
+                    android:id="@+id/phoneNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:maxLength="17"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/b5"
+                    android:layout_weight="1"
+                    android:backgroundTint="@android:color/transparent"
+                    android:text="+7(***)***-**-**"
+                    />
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:id="@+id/filed_mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/radius_bg_ten"
+            android:backgroundTint="@color/background_color"
+            >
+
+            <TableRow>
+                <TextView
+                    android:textSize="@dimen/b7"
+                    android:textColor="@color/gray"
+                    android:text="@string/mail_title"/>
+            </TableRow>
+
+            <TableRow>
+                <EditText
+                    android:id="@+id/mail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/b5"
+                    android:layout_weight="1"
+                    android:backgroundTint="@android:color/transparent"
+                    android:hint="example@mail.ru"
+                    />
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/about_num_and_mail_disc"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/b7"/>
+    </LinearLayout>
 
 
 </RelativeLayout>
