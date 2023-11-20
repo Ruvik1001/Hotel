@@ -35,24 +35,34 @@ import com.example.domain.usecase.CheckBuyerUseCase
 import com.example.domain.usecase.CheckClientsUseCase
 import com.example.domain.usecase.GetRoomInfoFromApiUseCase
 import com.example.hotel.R
-import com.example.hotel.special.interfaces.OnEdited
+import com.example.hotel.special.interfaces.OnEditedCallback
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+/**
+ * ViewModel for handling room reservation.
+ */
 class RoomReservationViewModel(
     private val context: Context,
     private val getRoomInfoFromApiUseCase: GetRoomInfoFromApiUseCase,
     private val checkBuyerUseCase: CheckBuyerUseCase,
     private val checkClientsUseCase: CheckClientsUseCase
-): ViewModel(), OnEdited {
+): ViewModel(), OnEditedCallback {
+
+    // LiveData for observing room information
     private val roomsMutableLiveData = MutableLiveData<RoomInfoModel>()
     val roomLiveData: LiveData<RoomInfoModel> = roomsMutableLiveData
 
+    // LiveData for observing reservation cost
     private val costMutableLiveData = MutableLiveData<Int>()
     val costLiveData: LiveData<Int> = costMutableLiveData
 
+    /**
+     * Initialization block that launches a coroutine to fetch room information from the API.
+     * The result is posted to the LiveData for observation.
+     */
     init {
         CoroutineScope(Dispatchers.IO).launch {
             Log.e("HOTEL", "VM INIT")
@@ -66,7 +76,17 @@ class RoomReservationViewModel(
         }
     }
 
+    // Properties for storing various reservation models
     private var hotelModel: ReservationHotelModel? = null
+    private var  tourModel: ReservationTourModel? = null
+    private var buyerModel: BuyerModel? = null
+    private var clientModel: ClientModel? = null
+    private var clientAddModel: ClientAddModel? = null
+    private var costModel: ReservationCostModel? = null
+
+    /**
+     * Get the reservation hotel model, creating it if not already initialized.
+     */
     fun getReservationHotelModel(): ReservationHotelModel {
         if (hotelModel == null)
             hotelModel = ReservationHotelModel(
@@ -78,7 +98,9 @@ class RoomReservationViewModel(
         return hotelModel!!
     }
 
-    private var  tourModel: ReservationTourModel? = null
+    /**
+     * Get the reservation tour model, creating it if not already initialized.
+     */
     fun getReservationTourModel(): ReservationTourModel {
         if (tourModel == null) tourModel = ReservationTourModel(
             roomsMutableLiveData.value!!.hotel_name,
@@ -93,19 +115,25 @@ class RoomReservationViewModel(
         return tourModel!!
     }
 
-    private var buyerModel: BuyerModel? = null
+    /**
+     * Get the reservation buyer model, creating it if not already initialized.
+     */
     fun getReservationBuyerModel(): BuyerModel {
         if (buyerModel == null) buyerModel = BuyerModel()
         return buyerModel!!
     }
 
-    private var clientModel: ClientModel? = null
+    /**
+     * Get the reservation client model, creating it if not already initialized.
+     */
     fun getReservationClientModel(): ClientModel {
         if (clientModel == null) clientModel = ClientModel()
         return clientModel!!
     }
 
-    private var clientAddModel: ClientAddModel? = null
+    /**
+     * Get the reservation additional client model, creating it if not already initialized.
+     */
     fun getReservationAddClientModel(): ClientAddModel {
         if (clientAddModel == null) clientAddModel = ClientAddModel(
             "Добавить туриста"
@@ -113,7 +141,9 @@ class RoomReservationViewModel(
         return clientAddModel!!
     }
 
-    private var costModel: ReservationCostModel? = null
+    /**
+     * Get the reservation cost model, creating it if not already initialized.
+     */
     fun getReservationCostModel(): ReservationCostModel {
         if (costModel == null) costModel = ReservationCostModel(
             roomsMutableLiveData.value!!.tour_price,
@@ -123,14 +153,32 @@ class RoomReservationViewModel(
         return costModel!!
     }
 
+    /**
+     * Validate the buyer model and return a list of validation results.
+     *
+     * @param buyerModel The buyer model to be validated.
+     * @return A list of validation results.
+     */
     fun validateBuyer(buyerModel: BuyerModel): List<String> {
         return checkBuyerUseCase.execute(buyerModel)
     }
 
+    /**
+     * Validate the client model and return a list of validation results.
+     *
+     * @param clientModel The client model to be validated.
+     * @return A list of validation results.
+     */
     fun validateClient(clientModel: ClientModel): List<String> {
         return checkClientsUseCase.execute(clientModel)
     }
 
+    /**
+     * Update the background tint of the phone view based on validation result.
+     *
+     * @param buyerModel The buyer model used for validation.
+     * @param viewPhone The TableLayout representing the phone view.
+     */
     override fun updatePhone(
         buyerModel: BuyerModel,
         viewPhone: TableLayout
@@ -148,6 +196,12 @@ class RoomReservationViewModel(
         }
     }
 
+    /**
+     * Update the background tint of the mail view based on validation result.
+     *
+     * @param buyerModel The buyer model to be validated.
+     * @param viewMail The TableLayout representing the mail view.
+     */
     override fun updateMail(
         buyerModel: BuyerModel,
         viewMail: TableLayout
@@ -165,6 +219,12 @@ class RoomReservationViewModel(
         }
     }
 
+    /**
+     * Update the background tint of the first name view based on validation result.
+     *
+     * @param clientModel The client model to be validated.
+     * @param viewMail The TableLayout representing the first name view.
+     */
     override fun updateName(
         clientModel: ClientModel,
         viewMail: TableLayout
@@ -182,6 +242,12 @@ class RoomReservationViewModel(
         }
     }
 
+    /**
+     * Update the background tint of the last name view based on validation result.
+     *
+     * @param clientModel The client model to be validated.
+     * @param viewMail The TableLayout representing the last name view.
+     */
     override fun updateLastName(
         clientModel: ClientModel,
         viewMail: TableLayout
@@ -199,6 +265,12 @@ class RoomReservationViewModel(
         }
     }
 
+    /**
+     * Update the background tint of the date of birth view based on validation result.
+     *
+     * @param clientModel The client model to be validated.
+     * @param viewMail The TableLayout representing the date of birth view.
+     */
     override fun updateDateOfBirth(
         clientModel: ClientModel,
         viewMail: TableLayout
@@ -216,6 +288,12 @@ class RoomReservationViewModel(
         }
     }
 
+    /**
+     * Update the background tint of the citizenship view based on validation result.
+     *
+     * @param clientModel The client model to be validated.
+     * @param viewMail The TableLayout representing the citizenship view.
+     */
     override fun updateCitizenship(
         clientModel: ClientModel,
         viewMail: TableLayout
@@ -233,6 +311,12 @@ class RoomReservationViewModel(
         }
     }
 
+    /**
+     * Update the background tint of the passport number view based on validation result.
+     *
+     * @param clientModel The client model to be validated.
+     * @param viewMail The TableLayout representing the passport number view.
+     */
     override fun updatePassportNumber(
         clientModel: ClientModel,
         viewMail: TableLayout
@@ -250,6 +334,12 @@ class RoomReservationViewModel(
         }
     }
 
+    /**
+     * Update the background tint of the passport expiration date view based on validation result.
+     *
+     * @param clientModel The client model to be validated.
+     * @param viewMail The TableLayout representing the passport expiration date view.
+     */
     override fun updatePassportExpirationDate(
         clientModel: ClientModel,
         viewMail: TableLayout
@@ -267,7 +357,13 @@ class RoomReservationViewModel(
         }
     }
 
+    /**
+     * Update the reservation cost.
+     *
+     * @param cost The updated cost value.
+     */
     override fun updatePrice(cost: Int) {
         costMutableLiveData.postValue(cost)
     }
+
 }

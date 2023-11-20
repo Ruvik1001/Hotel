@@ -3,20 +3,32 @@ package com.example.hotel.special.adapter.reservation.holder
 import android.content.Context
 import android.view.View
 import android.widget.ExpandableListView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.model.ClientModel
 import com.example.domain.model.ExpModel
 import com.example.hotel.R
 import com.example.hotel.special.adapter.explist.ExpListAdapter
-import com.example.hotel.special.interfaces.OnEdited
+import com.example.hotel.special.interfaces.OnEditedCallback
 
+/**
+ * ViewHolder class for displaying client information in the reservation adapter.
+ *
+ * @param context The context.
+ * @param itemView The view for the ViewHolder.
+ * @param onEditedCallback Callback interface for handling editing events.
+ */
 class ClientInfoViewHolder(
     private val context: Context,
     private val itemView: View,
-    private val onEdited: OnEdited
+    private val onEditedCallback: OnEditedCallback
 ) : RecyclerView.ViewHolder(itemView) {
 
+    /**
+     * Binds data to the ViewHolder.
+     *
+     * @param clientModel The model containing client information.
+     * @param title The title to display for the client information section.
+     */
     fun bind(clientModel: ClientModel, title: String) {
         val expList = itemView.findViewById<ExpandableListView>(R.id.exp_list)
 
@@ -24,7 +36,7 @@ class ClientInfoViewHolder(
             context = context,
             expList,
             groups = listOf(ExpModel(title, clientModel)),
-            onEdited
+            onEditedCallback
         )
         expList.setOnGroupClickListener { _, _, groupPosition, _ ->
             if (expList.isGroupExpanded(groupPosition)) {
@@ -40,6 +52,11 @@ class ClientInfoViewHolder(
         updateExpandableListViewHeight(expList)
     }
 
+    /**
+     * Updates the height of the ExpandableListView to accommodate the expanded content.
+     *
+     * @param expandableListView The ExpandableListView to be updated.
+     */
     private fun updateExpandableListViewHeight(expandableListView: ExpandableListView) {
         val params = expandableListView.layoutParams
         params.height = getTotalHeightOfListView(expandableListView)
@@ -47,6 +64,12 @@ class ClientInfoViewHolder(
         expandableListView.requestLayout()
     }
 
+    /**
+     * Calculates the total height of the ExpandableListView.
+     *
+     * @param listView The ExpandableListView.
+     * @return The total height of the ExpandableListView.
+     */
     private fun getTotalHeightOfListView(listView: ExpandableListView): Int {
         val adapter = listView.expandableListAdapter
         var totalHeight = 0

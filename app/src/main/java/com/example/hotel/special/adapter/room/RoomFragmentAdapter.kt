@@ -19,16 +19,35 @@ import com.google.android.flexbox.FlexboxLayout
 import java.text.NumberFormat
 import java.util.Locale
 
+/**
+ * Adapter for displaying room information in a RecyclerView.
+ *
+ * @param context The context of the calling activity or fragment.
+ * @param roomsListModel The data model containing a list of rooms to be displayed.
+ * @param onClick Callback function to be invoked when the "Change Room" button is clicked.
+ */
 class RoomFragmentAdapter(
     private val context: Context,
     private val roomsListModel: RoomsListModel?,
-    private val onClick: ()->Unit
+    private val onClick: () -> Unit
 ) : RecyclerView.Adapter<RoomFragmentAdapter.ViewHolder>() {
 
+    /**
+     * ViewHolder class for caching item views.
+     *
+     * @param view The inflated view associated with an item.
+     */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val container: FrameLayout = view.findViewById(R.id.fragmentContainer)
     }
 
+    /**
+     * Creates a new ViewHolder instance.
+     *
+     * @param parent The parent view group.
+     * @param viewType The type of the view.
+     * @return A new ViewHolder instance.
+     */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
             R.layout.layout_room_fragment, parent, false
@@ -36,6 +55,12 @@ class RoomFragmentAdapter(
         return ViewHolder(view)
     }
 
+    /**
+     * Binds data to the ViewHolder.
+     *
+     * @param holder The ViewHolder instance to bind data to.
+     * @param position The position of the item in the data set.
+     */
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val roomModel = roomsListModel?.rooms?.get(position)
             ?: RoomModel(0, "", 0, "", listOf(""), listOf(""))
@@ -87,7 +112,7 @@ class RoomFragmentAdapter(
 
         val numberFormat = NumberFormat.getNumberInstance(Locale.getDefault())
         holder.container.findViewById<TextView>(R.id.room_cost).text =
-            "${numberFormat.format(roomModel.price).replace(","," ")} " +
+            "${numberFormat.format(roomModel.price).replace(",", " ")} " +
                     "${context.resources.getString(R.string.currency_rus)}"
 
         holder.container.findViewById<TextView>(R.id.price_for_it).text = "${roomModel.price_per}"
@@ -97,8 +122,12 @@ class RoomFragmentAdapter(
         }
     }
 
+    /**
+     * Returns the total number of items in the data set.
+     *
+     * @return The total number of items.
+     */
     override fun getItemCount(): Int {
         return roomsListModel?.rooms?.size ?: 0
     }
 }
-

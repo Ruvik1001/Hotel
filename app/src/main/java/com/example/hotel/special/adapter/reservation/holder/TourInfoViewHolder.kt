@@ -6,7 +6,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.model.ReservationTourModel
 import com.example.hotel.R
 
+/**
+ * ViewHolder class for displaying tour information in the reservation adapter.
+ *
+ * @param itemView The view for the ViewHolder.
+ */
 class TourInfoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+    /**
+     * Binds data to the ViewHolder.
+     *
+     * @param reservationTourModel The model containing tour information.
+     */
     fun bind(reservationTourModel: ReservationTourModel) {
         itemView.findViewById<TextView>(R.id.from).setText("${reservationTourModel.departure}")
         itemView.findViewById<TextView>(R.id.to).setText("${reservationTourModel.arrival_country}")

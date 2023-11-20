@@ -26,9 +26,22 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-
+/**
+ * Fragment for displaying an image with rounded corners.
+ *
+ * @param imageUrl The link to the image.
+ */
 class ImageFragment(private val imageUrl: String = "") : Fragment() {
     private lateinit var view: View
+
+    /**
+     * Creates and returns the fragment view.
+     *
+     * @param inflater The inflater to inflate the layout.
+     * @param container The container into which the fragment is added.
+     * @param savedInstanceState The saved state of the fragment, if any.
+     * @return Returns the created view of the fragment.
+     */
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -51,11 +64,15 @@ class ImageFragment(private val imageUrl: String = "") : Fragment() {
             }
         }
 
-
-
         return view
     }
 
+    /**
+     * Gets a rounded corner bitmap of the image.
+     *
+     * @param imageUrl The link to the image.
+     * @return Returns a rounded corner bitmap of the image.
+     */
     private suspend fun getRoundedCornerBitmap(imageUrl: String): Bitmap =
         withContext(Dispatchers.IO) {
             try {
@@ -69,6 +86,4 @@ class ImageFragment(private val imageUrl: String = "") : Fragment() {
                 throw e
             }
         }
-
-
 }

@@ -16,7 +16,7 @@
         android:theme="@style/Theme.Hotel"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.succes.SuccesActivity"
+            android:name=".presentation.succes.SuccessActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.room.RoomChangeActivity"

@@ -9,6 +9,9 @@ import com.example.hotel.databinding.ActivityRoomChangeBinding
 import com.example.hotel.presentation.reservation.RoomReservationActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+/**
+ * Activity for changing rooms in a hotel.
+ */
 class RoomChangeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRoomChangeBinding
     private val viewModel by viewModel<RoomChangeViewModel>()

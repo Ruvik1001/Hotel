@@ -15,11 +15,20 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.NumberFormat
 import java.util.Locale
 
-
+/**
+ * Activity displaying details of a hotel.
+ */
 class HotelMainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHotelMainBinding
     private val viewModel by viewModel<HotelMainViewModel>()
 
+    /**
+     * Called when the activity is starting.
+     *
+     * @param savedInstanceState If the activity is being re-initialized after previously being shut down,
+     * this Bundle contains the data it most recently supplied in onSaveInstanceState(Bundle).
+     * @see Bundle
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHotelMainBinding.inflate(layoutInflater)
@@ -40,7 +49,6 @@ class HotelMainActivity : AppCompatActivity() {
             binding.hotelCost.text = "от ${numberFormat.format(it.minimal_price).replace(","," ")} ${resources.getString(R.string.currency_rus)}"
             binding.priceForIt.text = "${it.price_for_it}"
             binding.aboutHotelBody.text = "${it.about_the_hotel.description}"
-
 
             val flexboxLayout = FlexboxLayout(this)
             flexboxLayout.flexDirection = FlexDirection.ROW
@@ -84,10 +92,5 @@ class HotelMainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
-
-
-
     }
-
-
 }

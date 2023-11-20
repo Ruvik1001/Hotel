@@ -10,12 +10,19 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+/**
+ * ViewModel for handling room change logic.
+ */
 class RoomChangeViewModel(
     private val getRoomsFromApiUseCase: GetRoomsFromApiUseCase
 ): ViewModel(){
     private val roomsMutableLiveData = MutableLiveData<RoomsListModel>()
     val roomsLiveData: LiveData<RoomsListModel> = roomsMutableLiveData
 
+    /**
+     * Initialization block that launches a coroutine to fetch rooms from the API.
+     * The result is posted to the LiveData for observation.
+     */
     init {
         CoroutineScope(Dispatchers.IO).launch {
             val rooms = getRoomsFromApiUseCase.execute()

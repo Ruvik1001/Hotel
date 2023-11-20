@@ -11,24 +11,31 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+/**
+ * ViewModel for the HotelMainActivity.
+ *
+ * @param getHotelsFromApiUseCase Use case for fetching hotel data from the API.
+ */
 class HotelMainViewModel(
     private val getHotelsFromApiUseCase: GetHotelsFromApiUseCase
-): ViewModel() {
+) : ViewModel() {
     private val hotelsMutableLiveData = MutableLiveData<HotelModel>()
     val hotelLiveData: LiveData<HotelModel> = hotelsMutableLiveData
     private val adapterMutableLiveData = MutableLiveData<ImageFragmentAdapter>()
     val adapterLiveData: LiveData<ImageFragmentAdapter> = adapterMutableLiveData
 
+    /**
+     * Initialization block to fetch hotel data from the API.
+     */
     init {
         CoroutineScope(Dispatchers.IO).launch {
             val hotel = getHotelsFromApiUseCase.execute()
             when (hotel.isSuccess) {
-                hotel.isSuccess -> withContext(Dispatchers.Main) {
+                true -> withContext(Dispatchers.Main) {
                     hotelsMutableLiveData.postValue(hotel.getOrThrow())
                 }
                 else -> return@launch
             }
         }
     }
-
 }

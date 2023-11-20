@@ -11,6 +11,14 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.hotel.R
 import com.example.hotel.presentation.fragment.ImageFragment
 
+/**
+ * Adapter for displaying images in a ViewPager2 with an optional scrollbar.
+ *
+ * @param context The context.
+ * @param imageUrls The list of image URLs to display.
+ * @param scrollbarLayout The layout for the optional scrollbar.
+ * @param viewPager The ViewPager2 associated with the adapter.
+ */
 class ImageFragmentAdapter(
     private val context: Context,
     private var imageUrls: List<String>? = listOf(),
@@ -20,6 +28,13 @@ class ImageFragmentAdapter(
 
     private var scrollbar: Scrollbar? = null
 
+    /**
+     * Helper class for managing the scrollbar associated with the ViewPager2.
+     *
+     * @param context The context.
+     * @param scrollbarLayout The layout for the scrollbar.
+     * @param countItem The number of items to display in the scrollbar.
+     */
     private class Scrollbar(private val context: Context, private val scrollbarLayout: LinearLayout, private val countItem: Int) {
         init {
             for (i in 0 until countItem)
@@ -41,6 +56,11 @@ class ImageFragmentAdapter(
             scrollbarLayout.addView(item)
         }
 
+        /**
+         * Updates the scrollbar based on the selected position in the ViewPager2.
+         *
+         * @param selectedPosition The currently selected position in the ViewPager2.
+         */
         fun updateScrollbar(selectedPosition: Int) {
             for (i in 0 until scrollbarLayout.childCount) {
                 val item = scrollbarLayout.getChildAt(i) as ImageView
@@ -49,6 +69,14 @@ class ImageFragmentAdapter(
             }
         }
 
+        /**
+         * Calculates the new base color for a scrollbar item.
+         *
+         * @param length The total number of items in the scrollbar.
+         * @param position The position of the current item.
+         * @param activePosition The position of the active (selected) item.
+         * @return The new base color for the item.
+         */
         fun calculateNewBaseColor(length: Int, position: Int, activePosition: Int): Int {
             val baseColor = Color.BLACK
             var alpha = Color.alpha(baseColor)
@@ -61,10 +89,21 @@ class ImageFragmentAdapter(
         }
     }
 
+    /**
+     * Gets the number of items in the adapter.
+     *
+     * @return The number of items.
+     */
     override fun getItemCount(): Int {
         return imageUrls?.size ?: 0
     }
 
+    /**
+     * Creates a new fragment for the specified position.
+     *
+     * @param position The position of the item.
+     * @return The created fragment.
+     */
     override fun createFragment(position: Int): Fragment {
         return ImageFragment(imageUrls?.get(position) ?: "")
     }

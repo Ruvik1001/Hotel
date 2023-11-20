@@ -10,7 +10,10 @@ import com.example.hotel.R
 import com.example.data.repository.ClientRepository
 import com.example.hotel.presentation.hotel.HotelMainActivity
 
-class SuccesActivity : AppCompatActivity() {
+/**
+ * Activity displayed upon successful reservation.
+ */
+class SuccessActivity : AppCompatActivity() {
     val clientRepository = ClientRepository()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
